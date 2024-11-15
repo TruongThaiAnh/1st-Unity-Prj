@@ -1,67 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 1f; // Tốc độ di chuyển của nhân vật
+    [SerializeField] private float moveSpeed = 1f; // Tốc độ di chuyển của nhân vật, có thể chỉnh sửa trong Inspector
 
-    private PlayerMovement playerMovement; // Tham chiếu tới lớp PlayerMovement, điều khiển input
-    private Vector2 movement; // Vector để lưu hướng di chuyển từ input
-    private Rigidbody2D rb; // Tham chiếu tới Rigidbody2D của nhân vật
-    private Animator myAnimator;
-    private SpriteRenderer mySpriteRenderer;
+    private PlayerControls playerControl; // Đối tượng PlayerControls để nhận input từ người chơi
+    private Vector2 movement; // Vector lưu hướng di chuyển của nhân vật
+    private Rigidbody2D rb; // Tham chiếu tới thành phần Rigidbody2D của nhân vật để xử lý chuyển động vật lý
 
     private void Awake()
     {
-        playerMovement = new PlayerMovement(); // Khởi tạo lớp PlayerMovement để nhận input từ người chơi
-        rb = GetComponent<Rigidbody2D>(); // Lấy tham chiếu tới Rigidbody2D
-        myAnimator = GetComponent<Animator>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        // Khởi tạo PlayerControls để xử lý input
+        playerControl = new PlayerControls();
+
+        // Lấy tham chiếu tới thành phần Rigidbody2D của đối tượng để thực hiện các thao tác vật lý
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
     {
-        playerMovement.Enable(); // Kích hoạt hệ thống nhận input
+        // Kích hoạt khả năng nhận input của PlayerControls khi đối tượng được kích hoạt
+        playerControl.Enable();
     }
 
     private void Update()
     {
-        PlayerInput(); // Lấy input từ người chơi trong mỗi khung hình
+        // Gọi hàm PlayerInput() mỗi frame để lấy input từ người chơi
+        PlayerInput();
     }
 
     private void FixedUpdate()
     {
-        AdjustPlayerFacingDirection();
-        Move(); // Di chuyển nhân vật trong mỗi khung hình vật lý
+        // Gọi hàm Move() mỗi khung hình vật lý cố định để đảm bảo chuyển động trơn tru
+        Move();
     }
 
     private void PlayerInput()
     {
-        movement = playerMovement.Movement.Move.ReadValue<Vector2>(); // Lấy vector di chuyển từ input
-
-        myAnimator.SetFloat("moveX", movement.x);
-        myAnimator.SetFloat("moveY", movement.y);
-
+        // Lấy vector di chuyển từ input của người chơi (vector 2D đại diện cho hướng di chuyển)
+        movement = playerControl.Movement.Move.ReadValue<Vector2>();
     }
+
     private void Move()
     {
-        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime)); // Di chuyển nhân vật dựa trên input và tốc độ
+        // Tính toán vị trí mới bằng cách cộng vị trí hiện tại với hướng di chuyển nhân với tốc độ và thời gian
+        rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
-
-    private void AdjustPlayerFacingDirection()
-    {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
-
-        if(mousePos.x < playerScreenPoint.x)
-        {
-            mySpriteRenderer.flipX = true;
-        }else
-        {
-            mySpriteRenderer.flipX = false;
-        }
-    }
-
 }
