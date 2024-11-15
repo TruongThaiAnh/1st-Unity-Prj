@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4bb493c95c53fac48b933804332a6764
+guid: b1333fafd0d0a6440974bbd5aeaa69f6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,127 +136,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_player_right_walk_0
+      name: Slash Effect_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2641924734555924690864e2aa87e549
-      internalID: -1852780803
+      spriteID: 207366dc686b41c46976d12619285eb1
+      internalID: 269177251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_1
+      name: Slash Effect_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 468f4ae3e7a108249891fefc6753a71a
-      internalID: 459487513
+      spriteID: 936201c655111b34f935adc7d59ac845
+      internalID: -2073425410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_2
+      name: Slash Effect_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b5a7bf6874ae8a4ab2e77b6e186e764
-      internalID: 2033706657
+      spriteID: b55384ff3a8ff68468ff8ed188a560f7
+      internalID: 303128330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_3
+      name: Slash Effect_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b2d1f0376fcc44408ab889f0ffeeb9c
-      internalID: -319477414
+      spriteID: b492d70a75ba3694c80176f8376a9f3e
+      internalID: -1899742121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_4
+      name: Slash Effect_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6be32cb819653ed4eb024002e9bce749
-      internalID: -128535513
+      spriteID: 673e417baf8825a49bcbb70264b2705d
+      internalID: 113263343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_5
+      name: Slash Effect_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 64
         height: 64
-      alignment: 9
-      pivot: {x: 0.5, y: 0.4}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 174ffee45facedc48816700d4afd90d9
-      internalID: 1165546884
+      spriteID: f20797d27f8ed584a92452a5131f2fdd
+      internalID: -1954427081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash Effect_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6554f91f0ad37804d92fba4809670fd1
+      internalID: 1488225839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash Effect_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c015cb2ed84d37a4382d0196a0940602
+      internalID: 51523148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slash Effect_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae24f59ef3a4761489c868b0a75e0178
+      internalID: 1421923927
       vertices: []
       indices: 
       edges: []
@@ -272,12 +335,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_player_right_walk_0: -1852780803
-      spr_player_right_walk_1: 459487513
-      spr_player_right_walk_2: 2033706657
-      spr_player_right_walk_3: -319477414
-      spr_player_right_walk_4: -128535513
-      spr_player_right_walk_5: 1165546884
+      Slash Effect_0: 269177251
+      Slash Effect_1: -2073425410
+      Slash Effect_2: 303128330
+      Slash Effect_3: -1899742121
+      Slash Effect_4: 113263343
+      Slash Effect_5: -1954427081
+      Slash Effect_6: 1488225839
+      Slash Effect_7: 51523148
+      Slash Effect_8: 1421923927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

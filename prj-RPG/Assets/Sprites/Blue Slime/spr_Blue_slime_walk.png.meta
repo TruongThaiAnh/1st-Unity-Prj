@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4bb493c95c53fac48b933804332a6764
+guid: 361748969bc16a349a8e8ebfbc1a1896
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_player_right_walk_0
+      name: spr_Blue_slime_walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2641924734555924690864e2aa87e549
-      internalID: -1852780803
+      spriteID: c090ce73244088541aaf117a6befface
+      internalID: -1970218611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_1
+      name: spr_Blue_slime_walk_1
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 468f4ae3e7a108249891fefc6753a71a
-      internalID: 459487513
+      spriteID: 71e2492cabf3eec4aa5bef62ad18e9f1
+      internalID: 316406225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_2
+      name: spr_Blue_slime_walk_2
       rect:
         serializedVersion: 2
         x: 128
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b5a7bf6874ae8a4ab2e77b6e186e764
-      internalID: 2033706657
+      spriteID: aabd73bc364d60b4286ea89d478ce8a5
+      internalID: 149188727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_3
+      name: spr_Blue_slime_walk_3
       rect:
         serializedVersion: 2
         x: 192
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b2d1f0376fcc44408ab889f0ffeeb9c
-      internalID: -319477414
+      spriteID: 77223cb315456d0469571d2c4711bb2c
+      internalID: 1821306048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_4
+      name: spr_Blue_slime_walk_4
       rect:
         serializedVersion: 2
         x: 256
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6be32cb819653ed4eb024002e9bce749
-      internalID: -128535513
+      spriteID: 96cff4e72c83db541bd2c8ec6630cc01
+      internalID: -872749260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_player_right_walk_5
+      name: spr_Blue_slime_walk_5
       rect:
         serializedVersion: 2
         x: 320
@@ -255,8 +255,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 174ffee45facedc48816700d4afd90d9
-      internalID: 1165546884
+      spriteID: f77645bd45da1f94faafb78b000043ac
+      internalID: -495591356
       vertices: []
       indices: 
       edges: []
@@ -272,12 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_player_right_walk_0: -1852780803
-      spr_player_right_walk_1: 459487513
-      spr_player_right_walk_2: 2033706657
-      spr_player_right_walk_3: -319477414
-      spr_player_right_walk_4: -128535513
-      spr_player_right_walk_5: 1165546884
+      spr_Blue_slime_walk_0: -1970218611
+      spr_Blue_slime_walk_1: 316406225
+      spr_Blue_slime_walk_2: 149188727
+      spr_Blue_slime_walk_3: 1821306048
+      spr_Blue_slime_walk_4: -872749260
+      spr_Blue_slime_walk_5: -495591356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
