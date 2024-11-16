@@ -307,7 +307,7 @@ TextureImporter:
       name: spr_player_right_idle_8
       rect:
         serializedVersion: 2
-        x: 512
+        x: 513
         y: 0
         width: 64
         height: 64
