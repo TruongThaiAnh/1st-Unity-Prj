@@ -53,6 +53,7 @@ public class Sword : MonoBehaviour
     private void DoneAttackingAnimeEvent()
     {
         weaponCollider.gameObject.SetActive(false);
+      
     }
 
     public void SwingUpFlipAnimEvent()
