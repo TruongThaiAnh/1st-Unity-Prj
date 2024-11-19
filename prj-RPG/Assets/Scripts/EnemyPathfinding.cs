@@ -8,9 +8,12 @@ public class EnemyPathfinding : MonoBehaviour
 
     private Rigidbody2D rb; // Tham chiếu tới Rigidbody2D của Enemy để xử lý vật lý
     private Vector2 moveDir; // Hướng di chuyển của Enemy
+    private KnockBack knockBack;
+
 
     private void Awake()
     {
+       knockBack = GetComponent<KnockBack>();
         rb = GetComponent<Rigidbody2D>(); // Lấy thành phần Rigidbody2D từ GameObject
     }
 
