@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    //public bool FacingLeft
-    //{
-    //    get { return facingLeft; }
-    //    set { facingLeft = value; }
-    //}
+    public bool FacingLeft
+    {
+        get { return facingLeft; }
+        set { facingLeft = value; }
+    }
     [SerializeField] private float moveSpeed = 1f; // Tốc độ di chuyển của nhân vật, có thể chỉnh sửa trong Inspector
 
     private PlayerControls playerControl; // Đối tượng PlayerControls để nhận input từ người chơi
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private bool facingLeft = false;
 
     private void Awake()
     {
@@ -70,12 +71,12 @@ public class PlayerController : MonoBehaviour
         if (mousePos.x < playerScreenPoint.x)
         {
             spriteRenderer.flipX = true;
-            //FacingLeft = true;
+            FacingLeft = true;
         }
         else
         {
             spriteRenderer.flipX = false;
-            //FacingLeft = false;
+            FacingLeft = false;
         }
     }
 }
