@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
         get { return facingLeft; }
         set { facingLeft = value; }
     }
+
+    public static PlayerController Instance;
     [SerializeField] private float moveSpeed = 1f; // Tốc độ di chuyển của nhân vật, có thể chỉnh sửa trong Inspector
 
     private PlayerControls playerControl; // Đối tượng PlayerControls để nhận input từ người chơi
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         playerControl = new PlayerControls(); // Khởi tạo lớp PlayerMovement để nhận input từ người chơi
         rb = GetComponent<Rigidbody2D>(); // Lấy tham chiếu tới Rigidbody2D của nhân vật
         animator = GetComponent<Animator>(); // Lấy tham chiếu tới Animator của nhân vật
