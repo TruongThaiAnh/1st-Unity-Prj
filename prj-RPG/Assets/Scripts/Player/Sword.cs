@@ -7,20 +7,22 @@ public class Sword : MonoBehaviour
     [SerializeField] private GameObject slashAnimPrefab;
     [SerializeField] private Transform slashAnimSpawnPoint;
     [SerializeField] private Transform weaponCollider;
-
+    [SerializeField] private float swordAttackCD = .5f;
 
     private PlayerControls playerControls;
     private Animator myAnimator;
     private PlayerController playerController;
     private ActiveWeapon activeWeapon;
+    private bool attackButtonDown, isAttacking = false;
+
     private GameObject slashAnim;
 
     private void Awake()
     {
-        myAnimator = GetComponent<Animator>();
-        playerControls = new PlayerControls();
         playerController = GetComponentInParent<PlayerController>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
+        myAnimator = GetComponent<Animator>();
+        playerControls = new PlayerControls();
     }
 
     private void OnEnable()
@@ -28,37 +30,56 @@ public class Sword : MonoBehaviour
         playerControls.Enable();
     }
 
-     void Start()
+    void Start()
     {
-        playerControls.Combat.Attack.started += _ => Attack();    
+        playerControls.Combat.Attack.started += _ => StartAttacking();
+        playerControls.Combat.Attack.canceled += _ => StopAttacking();
     }
-
 
     private void Update()
     {
         MouseFollowWithOffset();
+        Attack();
     }
 
+    private void StartAttacking()
+    {
+        attackButtonDown = true;
+    }
+
+    private void StopAttacking()
+    {
+        attackButtonDown = false;
+    }
 
     private void Attack()
     {
-        myAnimator.SetTrigger("Attack");
-
-        weaponCollider.gameObject.SetActive(true);
-
-        slashAnim = Instantiate(slashAnimPrefab,slashAnimSpawnPoint.position,Quaternion.identity);
-        slashAnim.transform.parent = this.transform.parent;
+        if (attackButtonDown && !isAttacking)
+        {
+            isAttacking = true;
+            myAnimator.SetTrigger("Attack");
+            weaponCollider.gameObject.SetActive(true);
+            slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
+            slashAnim.transform.parent = this.transform.parent;
+            StartCoroutine(AttackCDRoutine());
+        }
     }
 
-    private void DoneAttackingAnimeEvent()
+    private IEnumerator AttackCDRoutine()
+    {
+        yield return new WaitForSeconds(swordAttackCD);
+        isAttacking = false;
+    }
+
+    public void DoneAttackingAnimEvent()
     {
         weaponCollider.gameObject.SetActive(false);
-      
     }
+
 
     public void SwingUpFlipAnimEvent()
     {
-        slashAnim.gameObject.transform.rotation = Quaternion.Euler(-180,0,0);
+        slashAnim.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
 
         if (playerController.FacingLeft)
         {
@@ -78,12 +99,11 @@ public class Sword : MonoBehaviour
 
     private void MouseFollowWithOffset()
     {
-        Vector3 mousePos = Input.mousePosition; // Lấy vị trí chuột trên màn hình
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(playerController.transform.position); // Chuyển vị trí của nhân vật sang hệ tọa độ màn hình
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(playerController.transform.position);
 
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg; // Tính góc quay để kiếm hướng về chuột
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
-        // Nếu chuột ở bên trái nhân vật, xoay kiếm theo trục X
         if (mousePos.x < playerScreenPoint.x)
         {
             activeWeapon.transform.rotation = Quaternion.Euler(0, -180, angle);
@@ -91,11 +111,8 @@ public class Sword : MonoBehaviour
         }
         else
         {
-            activeWeapon.transform.rotation = Quaternion.Euler(0, 0, angle); // Nếu chuột ở bên phải, kiếm giữ nguyên trục X
+            activeWeapon.transform.rotation = Quaternion.Euler(0, 0, angle);
             weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
-
         }
     }
-
-
 }
