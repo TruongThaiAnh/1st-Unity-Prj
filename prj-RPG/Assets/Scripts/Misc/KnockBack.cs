@@ -24,11 +24,15 @@ public class KnockBack : MonoBehaviour
         // Đặt trạng thái knockback thành true
         gettingKnockedBack = true;
 
+        // Hệ số giảm lực (giảm 50% knockback)
+        float dampingFactor = 0.5f;
+
         // Tính toán lực knockback:
         // Lực được tính theo hướng từ nguồn sát thương đến nhân vật (đẩy lùi nhân vật).
         Vector2 difference = (transform.position - damageSource.position).normalized
                              * knockBackThrust // Cường độ lực knockback
-                             * rb.mass;        // Điều chỉnh lực theo khối lượng
+                             * rb.mass // Điều chỉnh lực theo khối lượng
+                             * dampingFactor;
 
         // Áp dụng lực lên Rigidbody2D với ForceMode2D.Impulse (tác động tức thời)
         rb.AddForce(difference, ForceMode2D.Impulse);

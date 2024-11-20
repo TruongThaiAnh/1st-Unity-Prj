@@ -1,45 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.VisualScripting; // Sử dụng Visual Scripting nếu cần các tiện ích liên quan
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    // Số máu khởi đầu của kẻ địch, có thể điều chỉnh từ Inspector
     [SerializeField] private int startingHealth = 3;
-    [SerializeField] private GameObject deathVFXPrefabs; 
 
+    // Prefab hiển thị hiệu ứng khi kẻ địch chết (có thể là nổ, ánh sáng, hoặc hiệu ứng đặc biệt)
+    [SerializeField] private GameObject deathVFXPrefabs;
+
+    // Biến lưu trữ số máu hiện tại của kẻ địch
     private int currentHealth;
 
+    // Các thành phần được gắn trên kẻ địch để hỗ trợ knockback và hiệu ứng flash
     private KnockBack knockBack;
     private Flash flash;
 
-
     private void Awake()
     {
+        // Lấy thành phần Flash từ GameObject hiện tại
         flash = GetComponent<Flash>();
-        knockBack = GetComponent<KnockBack>();  
+
+        // Lấy thành phần KnockBack từ GameObject hiện tại
+        knockBack = GetComponent<KnockBack>();
     }
 
     private void Start()
     {
+        // Khởi tạo máu hiện tại bằng giá trị máu khởi đầu
         currentHealth = startingHealth;
     }
 
+    // Hàm để kẻ địch nhận sát thương
     public void TakeDamage(int damage)
     {
+        // Trừ đi số máu tương ứng với sát thương nhận vào
         currentHealth -= damage;
-        knockBack.GetKnockedBack(PlayerController.Instance.transform,15f);
+
+        // Kẻ địch bị đẩy lùi (knockback), sử dụng thành phần KnockBack
+        // PlayerController.Instance đại diện cho vị trí người chơi tấn công
+        knockBack.GetKnockedBack(PlayerController.Instance.transform, 15f);
+
+        // Bắt đầu hiệu ứng flash để hiển thị rằng kẻ địch đã bị tấn công
         StartCoroutine(flash.FlashRoutine());
+
+        // Kiểm tra nếu máu <= 0, gọi hàm DetectDeath
+        DetectDeath();
     }
 
+    // Hàm kiểm tra và xử lý cái chết của kẻ địch
     public void DetectDeath()
-{
-    Debug.Log($"DetectDeath called. Current Health: {currentHealth}");
-    if (currentHealth <= 0)
     {
-        Instantiate(deathVFXPrefabs, transform.position,Quaternion.identity);
-        Destroy(gameObject);
-    }
-}
+        // Hiển thị thông báo trên Console để theo dõi logic
+        Debug.Log($"DetectDeath called. Current Health: {currentHealth}");
 
+        // Nếu máu nhỏ hơn hoặc bằng 0, tiến hành xử lý cái chết
+        if (currentHealth <= 0)
+        {
+            // Hiển thị hiệu ứng cái chết tại vị trí của kẻ địch
+            Instantiate(deathVFXPrefabs, transform.position, Quaternion.identity);
+
+            // Hủy kẻ địch khỏi Scene
+            Destroy(gameObject);
+        }
+    }
 }
