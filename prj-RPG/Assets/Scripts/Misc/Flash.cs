@@ -5,24 +5,22 @@ using UnityEngine;
 public class Flash : MonoBehaviour
 {
     [SerializeField] private Material whiteFlashMat;
-    [SerializeField] private float restoreDefaulTime = .2f;
+    [SerializeField] private float restoreDefaultMatTime = .2f;
 
-    private Material defaulMat;
+    private Material defaultMat;
     private SpriteRenderer spriteRenderer;
     private EnemyHealth enemyHealth;
 
-    private void Awake()
-    {
-        defaulMat = spriteRenderer.material;
+    private void Awake() {
         enemyHealth = GetComponent<EnemyHealth>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultMat = spriteRenderer.material;
     }
 
-    public IEnumerator FlashRoutine()
-    {
-       spriteRenderer.material = whiteFlashMat;
-        yield return new WaitForSeconds(restoreDefaulTime);
-        spriteRenderer.material = defaulMat;
+    public IEnumerator FlashRoutine() {
+        spriteRenderer.material = whiteFlashMat;
+        yield return new WaitForSeconds(restoreDefaultMatTime);
+        spriteRenderer.material = defaultMat;
         enemyHealth.DetectDeath();
     }
 }
