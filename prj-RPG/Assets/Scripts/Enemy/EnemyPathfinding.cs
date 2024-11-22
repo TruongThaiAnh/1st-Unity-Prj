@@ -19,7 +19,7 @@ public class EnemyPathfinding : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (knockBack.gettingKnockedBack) { return; }
+        if (knockBack.GettingKnockedBack) { return; }
         // Di chuyển Enemy theo hướng moveDir và tốc độ moveSpeed
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
     }

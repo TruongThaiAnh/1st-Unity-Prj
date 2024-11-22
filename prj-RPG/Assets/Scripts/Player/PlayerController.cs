@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     public bool FacingLeft
     {
         get { return facingLeft; }
-        set { facingLeft = value; }
     }
+
 
     public static PlayerController Instance;
     [SerializeField] private float moveSpeed = 1f; // Tốc độ di chuyển của nhân vật, có thể chỉnh sửa trong Inspector
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private float startingMoveSpeed;
 
     private bool facingLeft = false;
     private bool isDashing = false;
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerControl.Combat.Dash.performed += _ => Dash();
+
+        startingMoveSpeed = moveSpeed;
     }
 
     private void OnEnable()
@@ -83,12 +86,12 @@ public class PlayerController : MonoBehaviour
         if (mousePos.x < playerScreenPoint.x)
         {
             spriteRenderer.flipX = true;
-            FacingLeft = true;
+            facingLeft = true;
         }
         else
         {
             spriteRenderer.flipX = false;
-            FacingLeft = false;
+            facingLeft = false;
         }
     }
 
@@ -108,7 +111,7 @@ public class PlayerController : MonoBehaviour
         float dashTime = .2f;
         float dashCD = .25f;
         yield return new WaitForSeconds(dashTime);  // Đợi khi dash xong
-        moveSpeed /= dashSpeed;  // Khôi phục lại tốc độ ban đầu
+        moveSpeed = startingMoveSpeed;  // Khôi phục lại tốc độ ban đầu
         myTrailRenderer.emitting = false;  // Tắt trail
 
         yield return new WaitForSeconds(dashCD);  // Chờ cooldown trước khi cho phép dash lại

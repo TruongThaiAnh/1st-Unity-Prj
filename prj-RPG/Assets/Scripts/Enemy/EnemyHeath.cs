@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour
     // Prefab hiển thị hiệu ứng khi kẻ địch chết (có thể là nổ, ánh sáng, hoặc hiệu ứng đặc biệt)
     [SerializeField] private GameObject deathVFXPrefabs;
 
+    [SerializeField] private float knockBackThrust = 15f;
+
     // Biến lưu trữ số máu hiện tại của kẻ địch
     private int currentHealth;
 
@@ -41,11 +43,18 @@ public class EnemyHealth : MonoBehaviour
 
         // Kẻ địch bị đẩy lùi (knockback), sử dụng thành phần KnockBack
         // PlayerController.Instance đại diện cho vị trí người chơi tấn công
-        knockBack.GetKnockedBack(PlayerController.Instance.transform, 15f);
+        knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
 
         // Bắt đầu hiệu ứng flash để hiển thị rằng kẻ địch đã bị tấn công
         StartCoroutine(flash.FlashRoutine());
+        StartCoroutine(CheckDetectDeathRoutine());
 
+
+    }
+
+    private IEnumerator CheckDetectDeathRoutine()
+    {
+        yield return new WaitForSeconds(flash.GetRestoreMatTime());
         // Kiểm tra nếu máu <= 0, gọi hàm DetectDeath
         DetectDeath();
     }

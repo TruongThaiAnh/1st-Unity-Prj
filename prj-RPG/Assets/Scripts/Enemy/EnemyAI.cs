@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+
+    [SerializeField] private float roamChangeDirFloat = 2f;
+
     // Enum để xác định trạng thái của Enemy
     private enum State
     {
@@ -31,7 +34,7 @@ public class EnemyAI : MonoBehaviour
         {
             Vector2 roamPosition = GetRoamingPosition(); // Lấy vị trí ngẫu nhiên để di chuyển tới
             enemyPathfinding.MoveTo(roamPosition); // Gọi phương thức MoveTo của EnemyPathfinding để di chuyển tới vị trí
-            yield return new WaitForSeconds(2f); // Đợi 2 giây trước khi chọn vị trí mới
+            yield return new WaitForSeconds(roamChangeDirFloat); // Đợi 2 giây trước khi chọn vị trí mới
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 public class KnockBack : MonoBehaviour
 {
     // Biến trạng thái: Kiểm tra xem nhân vật có đang bị knockback hay không
-    public bool gettingKnockedBack { get; private set; }
+    public bool GettingKnockedBack { get; private set; }
 
     // Thời gian nhân vật sẽ bị knockback (đẩy lùi)
     [SerializeField] private float knockBackTime = 0.2f;
@@ -22,7 +22,7 @@ public class KnockBack : MonoBehaviour
     public void GetKnockedBack(Transform damageSource, float knockBackThrust)
     {
         // Đặt trạng thái knockback thành true
-        gettingKnockedBack = true;
+        GettingKnockedBack = true;
 
         // Hệ số giảm lực (giảm 50% knockback)
         float dampingFactor = 0.5f;
@@ -51,7 +51,7 @@ public class KnockBack : MonoBehaviour
         rb.velocity = Vector2.zero;
 
         // Đặt trạng thái knockback thành false (không còn bị knockback)
-        gettingKnockedBack = false;
+        GettingKnockedBack = false;
     }
 }
 
