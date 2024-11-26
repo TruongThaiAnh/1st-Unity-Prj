@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6838860198455695213}
   - component: {fileID: 7150825771050514924}
   m_Layer: 0
-  m_Name: Bush
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 454142eef97cbe343bce92f4a3f44cf1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5709d3b6cbd51ae4ba2c4f8e934809c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,8 +118,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0.0074255466, y: -0.4269836}
+  m_Size: {x: 0.91831636, y: 1.0965354}
   m_Direction: 0
 --- !u!114 &7150825771050514924
 MonoBehaviour:
@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c538f7f9e7a44449ea2e0e0f83e773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyVFX: {fileID: 8753789976042762764, guid: f96319279d1d6f94ea849ca7cc522b4b, type: 3}
+  DestroyVFX: {fileID: 8753789976042762764, guid: e9300ff1b56d1c441b2616e0841f36c0, type: 3}

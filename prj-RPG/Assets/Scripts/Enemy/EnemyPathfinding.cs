@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyPathfinding : MonoBehaviour
 {
@@ -10,10 +8,9 @@ public class EnemyPathfinding : MonoBehaviour
     private Vector2 moveDir; // Hướng di chuyển của Enemy
     private KnockBack knockBack;
 
-
     private void Awake()
     {
-       knockBack = GetComponent<KnockBack>();
+        knockBack = GetComponent<KnockBack>();
         rb = GetComponent<Rigidbody2D>(); // Lấy thành phần Rigidbody2D từ GameObject
     }
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Sword : MonoBehaviour
@@ -32,7 +31,7 @@ public class Sword : MonoBehaviour
         playerControls.Enable();
     }
 
-    void Start()
+    private void Start()
     {
         // Gán sự kiện input cho phím tấn công
         playerControls.Combat.Attack.started += _ => StartAttacking(); // Khi nhấn phím, gọi hàm StartAttacking()

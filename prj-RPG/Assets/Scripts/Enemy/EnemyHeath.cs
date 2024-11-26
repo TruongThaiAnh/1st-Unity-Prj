@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting; // Sử dụng Visual Scripting nếu cần các tiện ích liên quan
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -18,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
 
     // Các thành phần được gắn trên kẻ địch để hỗ trợ knockback và hiệu ứng flash
     private KnockBack knockBack;
+
     private Flash flash;
 
     private void Awake()
@@ -48,8 +47,6 @@ public class EnemyHealth : MonoBehaviour
         // Bắt đầu hiệu ứng flash để hiển thị rằng kẻ địch đã bị tấn công
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
-
-
     }
 
     private IEnumerator CheckDetectDeathRoutine()

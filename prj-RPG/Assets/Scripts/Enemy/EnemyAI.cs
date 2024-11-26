@@ -1,10 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-
     [SerializeField] private float roamChangeDirFloat = 2f;
 
     // Enum để xác định trạng thái của Enemy

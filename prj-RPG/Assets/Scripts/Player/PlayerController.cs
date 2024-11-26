@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +7,6 @@ public class PlayerController : MonoBehaviour
     {
         get { return facingLeft; }
     }
-
 
     public static PlayerController Instance;
     [SerializeField] private float moveSpeed = 1f; // Tốc độ di chuyển của nhân vật, có thể chỉnh sửa trong Inspector
@@ -118,8 +115,6 @@ public class PlayerController : MonoBehaviour
         isDashing = false;  // Sau cooldown, cho phép dash lại
     }
 
-
-
     /*
  * NOTE:
  * 1. `IEnumerable`:
@@ -153,8 +148,8 @@ public class PlayerController : MonoBehaviour
  */
 
     // Trail Renderer trong Unity là gì?
-    // Trail Renderer là một thành phần (Component) trong Unity dùng để tạo hiệu ứng vệt sáng 
-    // hoặc vệt chuyển động phía sau một đối tượng khi nó di chuyển. 
+    // Trail Renderer là một thành phần (Component) trong Unity dùng để tạo hiệu ứng vệt sáng
+    // hoặc vệt chuyển động phía sau một đối tượng khi nó di chuyển.
     // Thường được sử dụng để tăng tính thẩm mỹ, ví dụ:
     // - Hiệu ứng kiếm vung trong game hành động.
     // - Vệt sáng phía sau đạn hoặc vật thể bay.
@@ -201,5 +196,4 @@ public class PlayerController : MonoBehaviour
     // Lưu ý hiệu năng:
     // - Sử dụng nhiều Trail Renderer có thể ảnh hưởng đến hiệu suất.
     // - Tối ưu bằng cách điều chỉnh Time và Min Vertex Distance để cân bằng giữa chất lượng và hiệu năng.
-
 }
