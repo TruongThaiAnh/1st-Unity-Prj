@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     public bool FacingLeft
     {
         get { return facingLeft; }
     }
 
-    public static PlayerController Instance;
+   
     [SerializeField] private float moveSpeed = 1f; // Tốc độ di chuyển của nhân vật, có thể chỉnh sửa trong Inspector
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
     private bool facingLeft = false;
     private bool isDashing = false;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
         playerControl = new PlayerControls(); // Khởi tạo lớp PlayerMovement để nhận input từ người chơi
         rb = GetComponent<Rigidbody2D>(); // Lấy tham chiếu tới Rigidbody2D của nhân vật
         animator = GetComponent<Animator>(); // Lấy tham chiếu tới Animator của nhân vật
