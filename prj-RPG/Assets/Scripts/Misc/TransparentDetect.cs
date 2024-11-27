@@ -20,16 +20,17 @@ public class TransparentDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.gameObject.GetComponent<PlayerController>())
         {
             if (spriteRenderer)
             {
                 StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, transparencyAmount));
             }
-            else if (tilemap)
-            {
-                StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, transparencyAmount));
-            }
+            //else if (tilemap)
+            //{
+            //    StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, transparencyAmount));
+            //}
         }
     }
 
@@ -41,10 +42,10 @@ public class TransparentDetection : MonoBehaviour
             {
                 StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, 1f));
             }
-            else if (tilemap)
-            {
-                StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, 1f));
-            }
+            //else if (tilemap)
+            //{
+            //    StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, 1f));
+            //}
         }
     }
 
@@ -60,15 +61,15 @@ public class TransparentDetection : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeRoutine(Tilemap tilemap, float fadeTime, float startValue, float targetTransparency)
-    {
-        float elapsedTime = 0;
-        while (elapsedTime < fadeTime)
-        {
-            elapsedTime += Time.deltaTime;
-            float newAlpha = Mathf.Lerp(startValue, targetTransparency, elapsedTime / fadeTime);
-            tilemap.color = new Color(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
-            yield return null;
-        }
-    }
+    //private IEnumerator FadeRoutine(Tilemap tilemap, float fadeTime, float startValue, float targetTransparency)
+    //{
+    //    float elapsedTime = 0;
+    //    while (elapsedTime < fadeTime)
+    //    {
+    //        elapsedTime += Time.deltaTime;
+    //        float newAlpha = Mathf.Lerp(startValue, targetTransparency, elapsedTime / fadeTime);
+    //        tilemap.color = new Color(tilemap.color.r, tilemap.color.g, tilemap.color.b, newAlpha);
+    //        yield return null;
+    //    }
+    //}
 }

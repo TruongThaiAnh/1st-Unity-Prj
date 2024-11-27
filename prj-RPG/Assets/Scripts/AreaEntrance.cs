@@ -8,9 +8,22 @@ public class AreaEntrance : MonoBehaviour
 
     private void Start()
     {
+        if (SceneManagement.Instance == null)
+        {
+            Debug.LogError("SceneManagement.Instance is null! Check if SceneManagement is in the scene.");
+            return;
+        }
+
+        if (PlayerController.Instance == null)
+        {
+            Debug.LogError("PlayerController.Instance is null! Ensure PlayerController is properly initialized.");
+            return;
+        }
+
         if (transitionName == SceneManagement.Instance.SceneTransitionName)
         {
             PlayerController.Instance.transform.position = this.transform.position;
         }
     }
+
 }

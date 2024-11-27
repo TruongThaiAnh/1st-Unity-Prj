@@ -724,11 +724,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 159240988288220683, guid: 136fcd0d21150304bae523c43deb8d9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.26
+      value: 4.75
       objectReference: {fileID: 0}
     - target: {fileID: 159240988288220683, guid: 136fcd0d21150304bae523c43deb8d9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.62
+      value: 3.46
       objectReference: {fileID: 0}
     - target: {fileID: 159240988288220683, guid: 136fcd0d21150304bae523c43deb8d9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -980,7 +980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &326104896
 Transform:
   m_ObjectHideFlags: 0
@@ -1362,7 +1362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &473742223
 Transform:
   m_ObjectHideFlags: 0
@@ -1899,11 +1899,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176215440293719990, guid: 8bd48a14b5867354c81dcf72089d6005, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.62
+      value: 3.64
       objectReference: {fileID: 0}
     - target: {fileID: 4176215440293719990, guid: 8bd48a14b5867354c81dcf72089d6005, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.76
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 4176215440293719990, guid: 8bd48a14b5867354c81dcf72089d6005, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8732,7 +8732,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1467661031
 Transform:
   m_ObjectHideFlags: 0
@@ -8760,7 +8760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f562745cb415b4787c82cbb6bfabb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparencyAmount: 0.8
+  transparencyAmount: 0.888
   fadeTime: 0.4
 --- !u!19719996 &1467661033
 TilemapCollider2D:
@@ -12932,10 +12932,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1467661030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f23392966bcf449a9a514d02d43d0f, type: 3}
+  m_Script: {fileID: 11500000, guid: ef491dbcfb636c248a1393b988d18a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxOffset: -0.25
+  parallaxOffset: -0.15
 --- !u!1 &1606731843
 GameObject:
   m_ObjectHideFlags: 0
@@ -24144,7 +24144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2098187073
 Transform:
   m_ObjectHideFlags: 0
