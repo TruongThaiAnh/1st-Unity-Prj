@@ -42,7 +42,7 @@ public class ActiveInventory : MonoBehaviour
         if (indexNum < 0 || indexNum >= this.transform.childCount)
         {
             // Ghi cảnh báo nếu giá trị không hợp lệ
-            Debug.LogWarning($"Invalid slot number: {numValue}. Ignoring input.");
+            //Debug.LogWarning($"Invalid slot number: {numValue}. Ignoring input.");
             return;
         }
 
@@ -57,7 +57,7 @@ public class ActiveInventory : MonoBehaviour
         if (indexNum < 0 || indexNum >= this.transform.childCount)
         {
             // Ghi lỗi nếu giá trị vượt phạm vi
-            Debug.LogError($"Index out of bounds: {indexNum}. Total slots: {this.transform.childCount}");
+            //Debug.LogError($"Index out of bounds: {indexNum}. Total slots: {this.transform.childCount}");
             return;
         }
 
@@ -73,5 +73,13 @@ public class ActiveInventory : MonoBehaviour
 
         // Bật đối tượng con đầu tiên của slot được chọn
         this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
+
+        ChangeActiveWeapon();
     }
+
+    private void ChangeActiveWeapon()
+    {
+        Debug.Log(transform.GetChild(activeSlotIndexNum).GetComponent<InventorySLot>().GetWeaponInfo().weaponPrefab.name);
+    }
+
 }
