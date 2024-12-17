@@ -1,16 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class ActiveWeapon : Singleton<ActiveWeapon>
 {
     [SerializeField] private MonoBehaviour currentActiveWeapon;
 
-    private PlayerControls playerControls; 
+    private PlayerControls playerControls;
 
     private bool attackButtonDown, isAttacking = false;
 
     protected override void Awake()
     {
         base.Awake();
+
         playerControls = new PlayerControls();
     }
 
@@ -29,14 +32,15 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     {
         Attack();
     }
-    public void ToggleIsAttacking(bool isAttacking)
+
+    public void ToggleIsAttacking(bool value)
     {
-        isAttacking = true;
-    } 
+        isAttacking = value;
+    }
 
     private void StartAttacking()
     {
-        isAttacking = true;
+        attackButtonDown = true;
     }
 
     private void StopAttacking()
@@ -46,11 +50,13 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Attack()
     {
-        if (attackButtonDown && !isAttacking ) {
-            isAttacking=true;
+        if (attackButtonDown && !isAttacking)
+        {
+            isAttacking = true;
             (currentActiveWeapon as IWeapon).Attack();
         }
     }
+}
     
 
 
@@ -91,4 +97,3 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     //        Debug.Log("PlayerControls đã được khởi tạo bằng new!");
     //    }
     //}
-}
