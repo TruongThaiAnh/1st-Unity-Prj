@@ -1,17 +1,19 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ActiveWeapon : Singleton<ActiveWeapon>
 {
-    [SerializeField] private MonoBehaviour currentActiveWeapon;
-
+    //[SerializeField] private MonoBehaviour currentActiveWeapon;
 
     private PlayerControls playerControls;
 
-    private bool attackButton,isActtack = false ;
+    private bool attackButtonDown, isAttacking = false;
 
     protected override void Awake()
     {
         base.Awake();
+
         playerControls = new PlayerControls();
     }
 
@@ -22,6 +24,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
 
     private void Start()
     {
+
+
         playerControls.Combat.Attack.started += _ => StartAttacking();
         playerControls.Combat.Attack.canceled += _ => StopAttacking();
     }
@@ -31,26 +35,36 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         Attack();
     }
 
-    public void ToggleIsAttacking(bool valus)
+    public void ToggleIsAttacking(bool value)
     {
-        isActtack = valus;
+        isAttacking = value;
     }
 
     private void StartAttacking()
     {
-        attackButton = true;
+        attackButtonDown = true;
     }
 
     private void StopAttacking()
     {
-        attackButton = false;
+        attackButtonDown = false;
     }
 
     private void Attack()
     {
-        if (attackButton && !isActtack) {
-            isActtack=true;
-            (currentActiveWeapon as IWeapon).Attack();
+        if (attackButtonDown && !isAttacking)
+        {
+            isAttacking = true;
+
+            if (currentActiveWeapon is IWeapon weapon)
+            {
+                weapon.Attack();
+            }
+            else
+            {
+                Debug.LogError("currentActiveWeapon chưa được gán hoặc không implement IWeapon!");
+            }
         }
     }
+
 }
